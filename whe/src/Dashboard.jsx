@@ -4,7 +4,9 @@ import { useState } from "react"
 import { useNavigate, Routes, Route } from "react-router-dom"
 import Services from "./Services"
 import Settings from "./Settings"
-import Profile from "./Profile"
+import UserProfile from "./UserProfile"
+import VehiclePortfolio from "./VehiclePortfolio"
+import BillsAndPayment from "./BillsAndPayment"
 
 function Dashboard({ onLogout }) {
   const navigate = useNavigate()
@@ -52,11 +54,12 @@ function Dashboard({ onLogout }) {
 
         <div className="content-area">
           <Routes>
-            <Route path="/" element={<DashboardHome onServiceClick={() => handleNavClick(navItems[2])} />} />
+            <Route path="/" element={<DashboardHome navigate={navigate} />} />
+            <Route path="/profile" element={<UserProfile />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/vehicle" element={<VehiclePortfolio />} />
+            <Route path="/bills" element={<BillsAndPayment />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/profile" element={<Profile />} />
-            {/* Add other routes as needed */}
           </Routes>
         </div>
       </main>
@@ -64,15 +67,14 @@ function Dashboard({ onLogout }) {
   )
 }
 
-// Dashboard home content
-function DashboardHome({ onServiceClick }) {
+function DashboardHome({ navigate }) {
   return (
-    <>
-      <button className="button add-service" onClick={onServiceClick}>
+    <div className="dashboard-home">
+      <button className="button add-service" onClick={() => navigate("/dashboard/services")}>
         + Add Service
       </button>
-      <div className="dashboard-cards">{/* Add your dashboard content here */}</div>
-    </>
+    
+    </div>
   )
 }
 

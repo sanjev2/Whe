@@ -1,4 +1,3 @@
-/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -49,6 +48,7 @@ body {
     padding: 30px;
   }
 }
+
 
 
 /* Updated form styles */
@@ -465,97 +465,2304 @@ h2 {
   justify-content: flex-end;
 }
 
-/*profile section */
-.profile-container {
-  max-width: 640px;
-  margin: 4rem auto;
-  padding: 3rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+/* Profile styles */
+.profile-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.info-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  margin: 8px 0;
+.profile-field {
+  margin-bottom: 24px;
 }
 
-.info-label {
-  font-weight: bold;
-  color: black;
+.profile-field label {
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 8px;
 }
 
-.info-value {
-  text-align: right;
-  color: gray;
+.field-value {
+  font-size: 16px;
+  color: #333;
+  padding: 8px 0;
 }
 
 .profile-actions {
   display: flex;
-  gap: 16px;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Vehicle Portfolio styles */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.vehicle-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.vehicle-card h3 {
+  color: #28a745;
+  margin-bottom: 16px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.detail-row span:first-child {
+  color: #666;
+}
+
+.vehicle-actions {
+  display: flex;
+  gap: 12px;
   margin-top: 20px;
 }
 
-.action-btn {
-  flex: 1;
-  min-width: 160px;
-  padding: 12px;
+.add-vehicle {
+  margin-top: 24px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 32px;
   border-radius: 12px;
-  background: blue;
-  color: white;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
   border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Service card styles */
+.service-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #28a745;
+  margin-bottom: 16px;
+}
+
+.service-info {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.service-info ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.service-info li {
+  margin-bottom: 8px;
+}
+
+.service-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #28a745;
+  margin-bottom: 8px;
+}
+
+.service-time {
+  color: #666;
+  font-size: 14px;
+}
+
+.add-to-cart {
+  margin-top: 20px;
+}
+
+/* Bills and Payment styles */
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bill-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.bill-info h3 {
+  color: #28a745;
+  margin-bottom: 8px;
+}
+
+.bill-details {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.bill-status {
+  color: #28a745;
+  font-size: 14px;
+}
+
+.receipt-view {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+.receipt-details {
+  margin: 24px 0;
+}
+
+.payment-methods {
+  margin: 24px 0;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.payment-icons img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Navigation styles */
+.header-with-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-back {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.nav-back:hover {
+  background: #f0f0f0;
+  transform: translateX(-2px);
+}
+
+/* Empty state styles */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+/* QR code placeholder */
+.qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: #f0f0f0;
+  margin: 20px auto;
+  border-radius: 12px;
+  position: relative;
+}
+
+.qr-placeholder::after {
+  content: "QR Code";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+}
+
+/* Enhanced animations */
+.vehicle-card,
+.bill-card {
+  transition: all 0.3s ease;
+}
+
+.vehicle-card:hover,
+.bill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-overlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Payment method icons grid */
+.payment-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.payment-icons img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-icons img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Enhanced button styles */
+.button.danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button.danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bill-card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bill-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .payment-icons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Vehicle Portfolio specific styles */
+.vehicle-portfolio {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.portfolio-header h2 {
+  color: #28a745;
+  margin: 0;
+  font-size: 28px;
+  text-align: left;
+}
+
+.header-with-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-back {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.nav-back:hover {
+  background: #f0f0f0;
+  transform: translateX(-2px);
+}
+
+.portfolio-content {
+  padding: 24px;
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.vehicle-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vehicle-title {
+  color: #28a745;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.vehicle-info {
+  margin-bottom: 24px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.info-label {
+  color: #666;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.vehicle-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.button.update {
+  background-color: #28a745;
+  color: white;
+}
+
+.button.update:hover {
+  background-color: #218838;
+}
+
+.button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button.delete:hover {
+  background-color: #c82333;
+}
+
+.button.add-vehicle {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content.vehicle-modal {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f0f0f0;
+}
+
+.modal-form {
+  margin-top: 24px;
+}
+
+.modal-form .form-group {
+  margin-bottom: 20px;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 16px;
+}
+
+.modal-form input,
+.modal-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  background: white;
+}
+
+.modal-form input:focus,
+.modal-form select:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+.modal-form .button {
+  margin-top: 24px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.empty-state p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-header h2 {
+    font-size: 24px;
+  }
+
+  .vehicle-actions {
+    flex-direction: column;
+  }
+
+  .modal-content.vehicle-modal {
+    width: 95%;
+    padding: 24px;
+  }
+}
+/* Update only the service card related styles */
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.services-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.service-header {
+  padding: 24px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.service-header h3 {
+  color: #28a745;
+  font-size: 24px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.service-warranty {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.service-content {
+  padding: 24px;
+}
+
+.service-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.service-features li {
+  color: #333;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.service-features li::before {
+  content: "✓";
+  color: #28a745;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.service-time {
+  color: #666;
+  font-size: 14px;
+}
+
+.button.add-to-cart {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button.add-to-cart:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .services-container {
+    padding: 16px;
+  }
+
+  .services-container h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .service-info {
+    align-items: center;
+  }
+
+  .button.add-to-cart {
+    width: 100%;
+  }
+}
+
+/* Add these new styles for bills and payments */
+.bills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.bills-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.bills-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: left;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+}
+
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bill-item {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bill-service-info h3 {
+  color: #28a745;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.bill-service-info p {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+.bill-total {
+  margin-top: 8px !important;
+  font-weight: 500;
+}
+
+.bill-status-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.payment-status {
+  color: #28a745;
+  font-size: 14px;
+}
+
+.bill-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Receipt styles */
+.receipt-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.receipt-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.receipt-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-label {
+  color: #666;
+  font-size: 16px;
+}
+
+.receipt-value {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.qr-code {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+}
+
+.payment-section {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.payment-section h3 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.payment-logo {
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.receipt-actions .button {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bills-container,
+  .receipt-container {
+    padding: 16px;
+  }
+
+  .bill-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .bill-status-actions {
+    align-items: stretch;
+  }
+
+  .bill-actions {
+    flex-direction: column;
+  }
+
+  .receipt-header h1 {
+    font-size: 24px;
+  }
+
+  .payment-methods {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .payment-logo {
+    height: 32px;
+  }
+
+  .receipt-actions {
+    flex-direction: column;
+  }
+}
+
+/* Add these new styles for the success message */
+.success-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Oil Selection Modal */
+.oil-selection-modal {
+  max-width: 500px;
+}
+
+.oil-options {
+  margin: 24px 0;
+}
+
+.oil-option {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.oil-option:hover {
+  border-color: #28a745;
+  background: #f8f9fa;
+}
+
+.oil-option.selected {
+  border-color: #28a745;
+  background: #f0f7f0;
+}
+
+.oil-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin-right: 16px;
+  margin-top: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.oil-option.selected .oil-radio {
+  border-color: #28a745;
+}
+
+.radio-inner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #28a745;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.2s ease;
+}
+
+.oil-option.selected .radio-inner {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.oil-info {
+  flex: 1;
+}
+
+.oil-info h3 {
+  color: #333;
+  margin: 0 0 4px 0;
+  font-size: 18px;
+}
+
+.oil-type {
+  color: #28a745;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.oil-description {
+  color: #666;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.oil-price {
+  color: #28a745;
+  font-weight: 600;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Cart Modal */
+.cart-modal {
+  max-width: 600px;
+}
+
+.cart-items {
+  margin: 24px 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.cart-item-info h3 {
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.cart-item-info p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.cart-item-price {
+  color: #28a745 !important;
+  font-weight: 600;
+  margin-top: 4px !important;
+}
+
+.button.remove {
+  background: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.button.remove:hover {
+  background: #c82333;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 2px solid #eee;
+  margin-top: 24px;
+}
+
+.cart-total h3 {
+  margin: 0;
+  color: #333;
+}
+
+.cart-total p {
+  margin: 0;
+  color: #28a745;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #666;
+  padding: 32px;
+}
+
+/* Services Footer */
+.services-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.button.secondary {
+  background: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.button.secondary:hover {
+  background: #e9ecef;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .services-container {
+    padding: 16px;
+  }
+
+  .services-container h1 {
+    font-size: 24px;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .services-footer {
+    flex-direction: column;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cart-item .button.remove {
+    width: 100%;
+  }
+}
+
+/* Receipt styles */
+.receipt-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+}
+
+.receipt-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.receipt-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-label {
+  color: #666;
+  font-size: 16px;
+}
+
+.receipt-value {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.qr-code {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+}
+
+.payment-section {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.payment-section h3 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.payment-logo {
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.receipt-actions .button {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .receipt-container {
+    padding: 16px;
+  }
+
+  .receipt-header h1 {
+    font-size: 24px;
+  }
+
+  .payment-methods {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .payment-logo {
+    height: 32px;
+  }
+
+  .receipt-actions {
+    flex-direction: column;
+  }
+}
+
+/* Update only the service card related styles */
+
+/* Update only the service card related styles */
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.services-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.service-header {
+  padding: 24px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.service-header h3 {
+  color: #28a745;
+  font-size: 24px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.service-warranty {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.service-content {
+  padding: 24px;
+}
+
+.service-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.service-features li {
+  color: #333;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.service-features li::before {
+  content: "✓";
+  color: #28a745;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: #28a745;
+}
+
+.service-time {
+  color: #666;
+  font-size: 14px;
+}
+
+.button.add-to-cart {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button.add-to-cart:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .services-container {
+    padding: 16px;
+  }
+
+  .services-container h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .service-info {
+    align-items: center;
+  }
+
+  .button.add-to-cart {
+    width: 100%;
+  }
+}
+
+
+/* Add these new styles for bills and payments */
+.bills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.bills-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.bills-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: left;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+}
+
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bill-item {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bill-service-info h3 {
+  color: #28a745;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.bill-service-info p {
+  color: #666;
+  margin: 0;
+  font-size: 14px;
+}
+
+.bill-total {
+  margin-top: 8px !important;
+  font-weight: 500;
+}
+
+.bill-status-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.payment-status {
+  color: #28a745;
+  font-size: 14px;
+}
+
+.bill-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Receipt styles */
+.receipt-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.receipt-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.receipt-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-label {
+  color: #666;
+  font-size: 16px;
+}
+
+.receipt-value {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.qr-code {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.qr-code img {
+  width: 200px;
+  height: 200px;
+}
+
+.payment-section {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.payment-section h3 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.payment-logo {
+  height: 40px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.receipt-actions .button {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bills-container,
+  .receipt-container {
+    padding: 16px;
+  }
+
+  .bill-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .bill-status-actions {
+    align-items: stretch;
+  }
+
+  .bill-actions {
+    flex-direction: column;
+  }
+
+  .receipt-header h1 {
+    font-size: 24px;
+  }
+
+  .payment-methods {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .payment-logo {
+    height: 32px;
+  }
+
+  .receipt-actions {
+    flex-direction: column;
+  }
+}
+
+
+/* Landing page styles */
+body {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Fixed Heading Section */
+.heading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #28a745;
+  color: white;
+  z-index: 1000;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+  margin-right: 100px;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Main Content Area */
+.body {
+  flex: 1;
+  margin-top: 60px;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  min-height: calc(100vh - 60px);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  white-space: normal;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: opacity 0.2s;
+}
+
+.primary-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.secondary-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+/* Hero Image */
+.hero-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+/* Services Section */
+
+
+/* Add only the back arrow styles to your existing app.css */
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
   cursor: pointer;
 }
 
-.action-btn:hover {
-  background: darkblue;
+/* Add these styles to your existing app.css */
+
+.emergency-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f5f5f5;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .info-item {
-      flex-direction: column;
-      align-items: flex-start;
+.emergency-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-
-  .info-value {
-      text-align: left;
-  }
-
-  .profile-actions {
-      flex-direction: column;
-  }
-
-  .action-btn {
-      width: 100%;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-/* Dark Mode */
-.dark-mode {
-  background: black;
-  color: white;
+.emergency-title {
+  color: #2e7d32;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
-.dark-mode .profile-container {
-  background: #222;
-  border: 1px solid blue;
+.emergency-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 0.5s ease-out;
 }
 
-.dark-mode .info-label,
-.dark-mode .info-value {
-  color: white;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.dark-mode .action-btn {
-  background: blue;
+.emergency-subtitle {
+  color: #2e7d32;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.emergency-text {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.share-location-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #ff3333;
   color: white;
   border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.dark-mode .action-btn:hover {
-  background: darkblue;
+.share-location-btn:hover {
+  background-color: #e60000;
+  transform: translateY(-2px);
 }
+
+.share-location-btn.confirmed {
+  background-color: #4caf50;
+  animation: pulse 1.5s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.return-login-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.return-login-btn:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+
+  
+
+/* About Section */
+.about {
+  padding: 60px 40px;
+  background-color: inherit;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Feedback Section */
+.feedback {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px;
+}
+
+.feedback h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.feedback p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #666;
+}
+
+.feedback-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-btn:hover {
+  background-color: #218838;
+}
+
+/* Footer Section */
+.footer {
+  padding: 30px;
+  text-align: center;
+  background-color: inherit;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+
+  .feedback {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .services1 h3,
+  .about h3,
+  .feedback h3 {
+    font-size: 24px;
+  }
+}
+
+* Services Section */
+.services1 {
+  padding: 60px 40px;
+  background-color: inherit;
+  text-align: center;
+}
+
+.servi h3{
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+
+}
+
+.services1 h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* Ensure the cards align in a row */
+.service-cards1 {
+  display: flex; /* Enables horizontal layout */
+  flex-direction: row; /* Ensures elements are in a row */
+  justify-content: center; /* Centers the cards in the container */
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 30px; /* Adds spacing between cards */
+  flex-wrap: nowrap; /* Prevents wrapping to a new line */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  padding-bottom: 10px; /* Space for scrolling */
+  width: 100%; /* Ensures full width */
+  max-width: 100%; /* Prevents shrinking */
+}
+
+.service-card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content inside each card */
+  justify-content: center;
+  background-color: inherit;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  transition: transform 0.3s;
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+.service-card1:hover {
+  transform: translateY(-5px);
+}
+
+.service-card1 h4 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Add these styles to your existing app.css */
+
+.auth-subtitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.auth-description {
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.success-message {
+  background-color: #4caf50;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 1rem 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.error-message {
+  background-color: #ff3333;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  margin: 1rem 0;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.link-text {
+  color: #2e7d32;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-text:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -118,7 +118,7 @@ function Signup({ onSignup }) {
         </form>
 
         <p className="auth-footer">
-          Already have an account? <Link to="/">Login here</Link>
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </div>
     </div>
