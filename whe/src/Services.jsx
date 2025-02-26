@@ -3,6 +3,11 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
+import qr from "./images/qr.png"
+import esewa from "./images/esewa.png"
+import khalti from "./images/khalti.png"
+import visa from "./images/visa.png"
+import ips from "./images/ips.png"
 
 function Services() {
   const [cart, setCart] = useState([])
@@ -192,16 +197,16 @@ function Services() {
         </div>
 
         <div className="qr-code">
-          <img src="/placeholder.svg?height=200&width=200" alt="QR Code" />
+          <img src={qr} alt="QR Code" />
         </div>
 
         <div className="payment-section">
           <h3>Payment Methods</h3>
           <div className="payment-methods">
-            <img src="/esewa-logo.png" alt="eSewa" className="payment-logo" />
-            <img src="/khalti-logo.png" alt="Khalti" className="payment-logo" />
-            <img src="/visa-logo.png" alt="Visa" className="payment-logo" />
-            <img src="/connectips-logo.png" alt="ConnectIPS" className="payment-logo" />
+            <img src={esewa} alt="eSewa" className="payment-logo" />
+            <img src={khalti} alt="Khalti" className="payment-logo" />
+            <img src={visa} alt="Visa" className="payment-logo" />
+            <img src={ips} alt="ConnectIPS" className="payment-logo" />
           </div>
         </div>
 
