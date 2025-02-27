@@ -14,7 +14,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    const auth = localStorage.getItem("auth")
+    const auth = localStorage.getItem("token")
     if (auth) {
       setIsAuthenticated(true)
     }
@@ -26,7 +26,7 @@ function App() {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("auth")
+    localStorage.removeItem("token")
     localStorage.removeItem("cart")
     setIsAuthenticated(false)
   }

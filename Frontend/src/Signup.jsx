@@ -1,40 +1,48 @@
-"use client"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-
-function Signup({ onSignup }) {
-  const navigate = useNavigate()
+function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    location: "",
-    phone: "",
     password: "",
     confirmPassword: "",
-  })
-  const [error, setError] = useState("")
+  });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (Object.values(formData).some((value) => !value)) {
-      setError("Please fill in all fields")
-      return
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match")
-      return
+      setError("Passwords do not match");
+      return;
     }
-    onSignup(formData)
-    navigate("/dashboard")
-  }
+
+    try {
+      const response = await axios.post("http://localhost:4000/api/users", {
+        name: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (response.status === 201) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || "An error occurred. Please try again.");
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -52,6 +60,7 @@ function Signup({ onSignup }) {
               value={formData.fullName}
               onChange={handleChange}
               placeholder="Enter your full name"
+              required
             />
           </div>
 
@@ -63,28 +72,7 @@ function Signup({ onSignup }) {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Location</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              placeholder="Enter your location"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Phone Number</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
+              required
             />
           </div>
 
@@ -96,6 +84,7 @@ function Signup({ onSignup }) {
               value={formData.password}
               onChange={handleChange}
               placeholder="Create a password"
+              required
             />
           </div>
 
@@ -107,6 +96,7 @@ function Signup({ onSignup }) {
               value={formData.confirmPassword}
               onChange={handleChange}
               placeholder="Confirm your password"
+              required
             />
           </div>
 
@@ -118,12 +108,10 @@ function Signup({ onSignup }) {
         </form>
 
         <p className="auth-footer">
-          Already have an account? <Link to="/login">Login here</Link>
+          Already have an account? <a href="/login">Login here</a>
         </p>
       </div>
     </div>
-  )
+  );
 }
-
-export default Signup
-
+export default Signup;

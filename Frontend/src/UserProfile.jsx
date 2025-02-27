@@ -1,35 +1,95 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function UserProfile() {
   const [profile, setProfile] = useState({
+    id: null,
     fullName: "",
     email: "",
-    location: "",
-    phoneNumber: "",
-  })
-  const [isEditing, setIsEditing] = useState(false)
-  const navigate = useNavigate()
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
+  // Fetch user details from the backend "get me" endpoint
   useEffect(() => {
-    const savedProfile = localStorage.getItem("userProfile")
-    if (savedProfile) {
-      setProfile(JSON.parse(savedProfile))
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setError("User not authenticated");
+      setLoading(false);
+      return;
     }
-  }, [])
 
+    axios
+      .get("http://localhost:4000/api/auth/me", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        // Use response.data.data.user (per your backend response)
+        const user = response.data.data.user;
+        setProfile({
+          id: user.id,
+          fullName: user.name || "",
+          email: user.email || "",
+        });
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response?.data?.message || "Failed to load profile");
+        setLoading(false);
+      });
+  }, []);
+
+  // API integration for updating the user profile
   const handleSave = () => {
-    localStorage.setItem("userProfile", JSON.stringify(profile))
-    setIsEditing(false)
-  }
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setError("User not authenticated");
+      return;
+    }
+
+    axios
+      .put(
+        `http://localhost:4000/api/users/${profile.id}`,
+        {
+          name: profile.fullName,
+          email: profile.email,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((response) => {
+        setIsEditing(false);
+      })
+      .catch((err) => {
+        setError(err.response?.data?.message || "Failed to update profile");
+      });
+  };
 
   const handleChange = (e) => {
     setProfile({
       ...profile,
       [e.target.name]: e.target.value,
-    })
+    });
+  };
+
+  if (loading) {
+    return <div>Loading profile...</div>;
+  }
+
+  if (error) {
+    return <div className="error">{error}</div>;
   }
 
   return (
@@ -43,7 +103,12 @@ function UserProfile() {
           <div className="profile-field">
             <label>Full Name</label>
             {isEditing ? (
-              <input type="text" name="fullName" value={profile.fullName} onChange={handleChange} />
+              <input
+                type="text"
+                name="fullName"
+                value={profile.fullName}
+                onChange={handleChange}
+              />
             ) : (
               <div className="field-value">{profile.fullName}</div>
             )}
@@ -52,27 +117,14 @@ function UserProfile() {
           <div className="profile-field">
             <label>Email Address</label>
             {isEditing ? (
-              <input type="email" name="email" value={profile.email} onChange={handleChange} />
+              <input
+                type="email"
+                name="email"
+                value={profile.email}
+                onChange={handleChange}
+              />
             ) : (
               <div className="field-value">{profile.email}</div>
-            )}
-          </div>
-
-          <div className="profile-field">
-            <label>Location</label>
-            {isEditing ? (
-              <input type="text" name="location" value={profile.location} onChange={handleChange} />
-            ) : (
-              <div className="field-value">{profile.location}</div>
-            )}
-          </div>
-
-          <div className="profile-field">
-            <label>Phone Number</label>
-            {isEditing ? (
-              <input type="tel" name="phoneNumber" value={profile.phoneNumber} onChange={handleChange} />
-            ) : (
-              <div className="field-value">{profile.phoneNumber}</div>
             )}
           </div>
         </div>
@@ -93,8 +145,7 @@ function UserProfile() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default UserProfile
-
+export default UserProfile;

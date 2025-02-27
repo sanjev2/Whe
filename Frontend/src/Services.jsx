@@ -114,6 +114,7 @@ function Services() {
     const serviceWithOil = {
       ...selectedService,
       oil: selectedOil,
+      // Calculate total price including oil charge
       totalPrice: selectedService.price + selectedOil.price,
       id: Date.now(),
     }
@@ -133,29 +134,49 @@ function Services() {
     setShowReceipt(true)
   }
 
-  const handleSaveBill = () => {
-    const currentBills = JSON.parse(localStorage.getItem("bills") || "[]")
-    const newBill = {
-      id: Date.now(),
-      service: cart[0].title,
-      oilType: cart[0].oil.name,
-      price: cart.reduce((total, item) => total + item.totalPrice, 0),
+  // API integration for processing checkout with token,
+  // adjusting payload to match the serviceController's expected schema.
+  const handleSaveBill = async () => {
+    if (cart.length === 0) return
+
+    // Construct payload with only the fields expected by the serviceController
+    const newServicePayload = {
+      title: cart[0].title,
+      description: cart[0].description,
+      features: cart[0].features,
+      // Use the calculated total price (service price + oil price)
+      price: cart[0].totalPrice,
       time: cart[0].time,
-      date: new Date().toISOString().split("T")[0],
-      status: "completed",
-      addOns: `1 Service & 3 Add Ons`,
     }
 
-    localStorage.setItem("bills", JSON.stringify([...currentBills, newBill]))
-    setCart([])
-    localStorage.removeItem("cart")
-    setShowSuccess(true)
+    // Retrieve token from localStorage
+    const token = localStorage.getItem("token")
 
-    // Automatically hide success message and redirect after 2 seconds
-    setTimeout(() => {
-      setShowSuccess(false)
-      navigate("/dashboard")
-    }, 2000)
+    try {
+      const response = await fetch("http://localhost:4000/api/services", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(newServicePayload),
+      })
+
+      if (response.ok) {
+        setCart([])
+        localStorage.removeItem("cart")
+        setShowSuccess(true)
+        setTimeout(() => {
+          setShowSuccess(false)
+          navigate("/dashboard")
+        }, 2000)
+      } else {
+        const errorData = await response.json()
+        console.error("Failed to create service:", errorData.message)
+      }
+    } catch (error) {
+      console.error("Error while saving service:", error)
+    }
   }
 
   if (showSuccess) {
@@ -337,4 +358,3 @@ function Services() {
 }
 
 export default Services
-
